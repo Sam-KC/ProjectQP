@@ -2,19 +2,20 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from django.http import JsonResponse
 import datetime
+from django.shortcuts import render
+
 
 @csrf_exempt
 def index(request):
-
     if request.method == 'POST':
         return postrequest()
     else:
-        return postrequest()
+        return render(request, 'index.html')
 
 
-def postrequest():
-    response = {
-    'name': 'Vitor',
+def postrequest():   
+    response = {  
+    'name': 'your_name', 
     'location': 'Finland',
     'is_active': True,
     'count': 28
